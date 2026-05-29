@@ -94,7 +94,7 @@ class _LeaveScreenState extends State<LeaveScreen> with SingleTickerProviderStat
               margin: const EdgeInsets.only(bottom: 8),
               child: ListTile(
                 leading: CircleAvatar(
-                  backgroundColor: _statusColor(r.status).withOpacity(0.2),
+                  backgroundColor: _statusColor(r.status).withValues(alpha: 0.2),
                   child: Icon(_statusIcon(r.status), color: _statusColor(r.status)),
                 ),
                 title: Text(r.employeeName ?? 'N/A', style: const TextStyle(fontWeight: FontWeight.w600)),

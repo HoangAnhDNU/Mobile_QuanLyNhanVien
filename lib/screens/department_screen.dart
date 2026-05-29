@@ -27,7 +27,7 @@ class DepartmentScreen extends StatelessWidget {
                 margin: const EdgeInsets.only(bottom: 8),
                 child: ListTile(
                   leading: CircleAvatar(
-                    backgroundColor: AppColors.primary.withOpacity(0.1),
+                    backgroundColor: AppColors.primary.withValues(alpha: 0.1),
                     child: const Icon(Icons.business, color: AppColors.primary),
                   ),
                   title: Text(dept.name, style: const TextStyle(fontWeight: FontWeight.w600)),
@@ -84,7 +84,7 @@ class DepartmentScreen extends StatelessWidget {
             onPressed: () {
               if (nameCtrl.text.trim().isEmpty) return;
               if (isEditing) {
-                provider.update(dept!.id, nameCtrl.text.trim(), descCtrl.text.trim().isNotEmpty ? descCtrl.text.trim() : null);
+                provider.update(dept.id, nameCtrl.text.trim(), descCtrl.text.trim().isNotEmpty ? descCtrl.text.trim() : null);
               } else {
                 provider.add(nameCtrl.text.trim(), descCtrl.text.trim().isNotEmpty ? descCtrl.text.trim() : null);
               }

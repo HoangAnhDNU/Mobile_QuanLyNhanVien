@@ -67,7 +67,7 @@ class SalaryScreen extends StatelessWidget {
                             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                             child: ExpansionTile(
                               leading: CircleAvatar(
-                                backgroundColor: AppColors.primary.withOpacity(0.1),
+                                backgroundColor: AppColors.primary.withValues(alpha: 0.1),
                                 child: Text((s.employeeName ?? '?')[0], style: const TextStyle(color: AppColors.primary)),
                               ),
                               title: Text(s.employeeName ?? 'N/A', style: const TextStyle(fontWeight: FontWeight.w600)),

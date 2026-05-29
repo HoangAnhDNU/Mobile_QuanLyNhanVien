@@ -14,6 +14,7 @@ analyzer:
     - lib_old/**
     - lib/core/**
     - lib/features/**
+    - lib/shared/**
     - lib/app.dart
     - download_sqlite_web.dart
 
