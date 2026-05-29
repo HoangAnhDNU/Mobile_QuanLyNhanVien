@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
+import '../providers/theme_provider.dart';
 import '../screens/dashboard_screen.dart';
 import '../screens/employee_list_screen.dart';
 import '../screens/department_screen.dart';
@@ -49,6 +50,23 @@ class AppDrawer extends StatelessWidget {
           _item(context, Icons.attach_money, 'Bảng lương', const SalaryScreen()),
           _item(context, Icons.event_note, 'Nghỉ phép', const LeaveScreen()),
           _item(context, Icons.bar_chart, 'Thống kê', const StatisticsScreen()),
+          const Divider(),
+          Consumer<ThemeProvider>(
+            builder: (context, themeProvider, _) {
+              return SwitchListTile(
+                secondary: Icon(
+                  themeProvider.isDarkMode ? Icons.dark_mode : Icons.light_mode,
+                  color: themeProvider.isDarkMode ? Colors.amber : Colors.orange,
+                ),
+                title: const Text('Dark Mode'),
+                subtitle: Text(themeProvider.isDarkMode ? 'Đang bật' : 'Đang tắt'),
+                value: themeProvider.isDarkMode,
+                onChanged: (value) {
+                  themeProvider.toggleTheme(value);
+                },
+              );
+            },
+          ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.logout, color: Colors.red),

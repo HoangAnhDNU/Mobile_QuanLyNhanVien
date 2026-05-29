@@ -25,20 +25,20 @@ class EmployeeListScreen extends StatelessWidget {
           final employees = employeeProvider.employees;
 
           if (employees.isEmpty) {
-            return const Center(
+            return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.people_outline, size: 80, color: AppColors.divider),
-                  SizedBox(height: 16),
+                  Icon(Icons.people_outline, size: 80, color: Theme.of(context).colorScheme.outlineVariant),
+                  const SizedBox(height: 16),
                   Text(
                     'Chưa có nhân viên nào',
-                    style: TextStyle(fontSize: 18, color: AppColors.textSecondary),
+                    style: TextStyle(fontSize: 18, color: Theme.of(context).colorScheme.onSurfaceVariant),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                     'Nhấn + để thêm nhân viên mới',
-                    style: TextStyle(fontSize: 14, color: AppColors.textSecondary),
+                    style: TextStyle(fontSize: 14, color: Theme.of(context).colorScheme.onSurfaceVariant),
                   ),
                 ],
               ),

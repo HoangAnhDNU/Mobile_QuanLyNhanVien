@@ -59,26 +59,26 @@ class EmployeeDetailScreen extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               employee.position,
-              style: const TextStyle(fontSize: 16, color: AppColors.textSecondary),
+              style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.onSurfaceVariant),
             ),
             const SizedBox(height: 24),
             _buildInfoCard([
-              _buildInfoRow(Icons.badge, 'Mã NV', employee.employeeCode),
-              _buildInfoRow(Icons.business, 'Phòng ban', employee.department),
-              _buildInfoRow(Icons.work, 'Chức vụ', employee.position),
-              _buildInfoRow(Icons.circle, 'Trạng thái', employee.status),
+              _buildInfoRow(context, Icons.badge, 'Mã NV', employee.employeeCode),
+              _buildInfoRow(context, Icons.business, 'Phòng ban', employee.department),
+              _buildInfoRow(context, Icons.work, 'Chức vụ', employee.position),
+              _buildInfoRow(context, Icons.circle, 'Trạng thái', employee.status),
             ]),
             const SizedBox(height: 16),
             _buildInfoCard([
-              _buildInfoRow(Icons.cake, 'Ngày sinh', employee.dateOfBirth),
-              _buildInfoRow(Icons.person, 'Giới tính', employee.gender),
-              _buildInfoRow(Icons.phone, 'Điện thoại', employee.phone),
-              _buildInfoRow(Icons.email, 'Email', employee.email),
+              _buildInfoRow(context, Icons.cake, 'Ngày sinh', employee.dateOfBirth),
+              _buildInfoRow(context, Icons.person, 'Giới tính', employee.gender),
+              _buildInfoRow(context, Icons.phone, 'Điện thoại', employee.phone),
+              _buildInfoRow(context, Icons.email, 'Email', employee.email),
             ]),
             const SizedBox(height: 16),
             _buildInfoCard([
-              _buildInfoRow(Icons.calendar_today, 'Ngày vào', employee.startDate),
-              _buildInfoRow(Icons.attach_money, 'Lương cơ bản',
+              _buildInfoRow(context, Icons.calendar_today, 'Ngày vào', employee.startDate),
+              _buildInfoRow(context, Icons.attach_money, 'Lương cơ bản',
                   '${_formatCurrency(employee.baseSalary)} đ'),
             ]),
           ],
@@ -98,18 +98,21 @@ class EmployeeDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoRow(IconData icon, String label, String value) {
+  Widget _buildInfoRow(BuildContext context, IconData icon, String label, String value) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
         children: [
-          Icon(icon, size: 20, color: AppColors.primary),
+          Icon(icon, size: 20, color: Theme.of(context).colorScheme.primary),
           const SizedBox(width: 12),
           SizedBox(
             width: 100,
             child: Text(
               label,
-              style: const TextStyle(color: AppColors.textSecondary, fontSize: 14),
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+                fontSize: 14,
+              ),
             ),
           ),
           Expanded(
