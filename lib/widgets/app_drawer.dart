@@ -10,6 +10,7 @@ import '../screens/salary_screen.dart';
 import '../screens/leave_screen.dart';
 import '../screens/statistics_screen.dart';
 import '../screens/login_screen.dart';
+import '../screens/settings_screen.dart';
 import '../theme/app_colors.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -50,6 +51,7 @@ class AppDrawer extends StatelessWidget {
           _item(context, Icons.attach_money, 'Bảng lương', const SalaryScreen()),
           _item(context, Icons.event_note, 'Nghỉ phép', const LeaveScreen()),
           _item(context, Icons.bar_chart, 'Thống kê', const StatisticsScreen()),
+          _item(context, Icons.settings, 'Cài đặt', const SettingsScreen()),
           const Divider(),
           Consumer<ThemeProvider>(
             builder: (context, themeProvider, _) {

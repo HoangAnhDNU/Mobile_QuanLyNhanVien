@@ -51,6 +51,11 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
         scaffoldBackgroundColor: AppColors.background,
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(fontSize: themeProvider.fontSize),
+          bodyLarge: TextStyle(fontSize: themeProvider.fontSize + 2),
+          bodySmall: TextStyle(fontSize: themeProvider.fontSize - 2),
+        ),
         appBarTheme: const AppBarTheme(
           centerTitle: true,
           backgroundColor: AppColors.primary,
@@ -65,12 +70,26 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
         scaffoldBackgroundColor: const Color(0xFF121212),
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(fontSize: themeProvider.fontSize),
+          bodyLarge: TextStyle(fontSize: themeProvider.fontSize + 2),
+          bodySmall: TextStyle(fontSize: themeProvider.fontSize - 2),
+        ),
         appBarTheme: const AppBarTheme(
           centerTitle: true,
           backgroundColor: Color(0xFF1E1E1E),
           foregroundColor: Colors.white,
         ),
       ),
+      builder: (context, child) {
+        final scale = themeProvider.fontSize / 14.0;
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            textScaler: TextScaler.linear(scale),
+          ),
+          child: child!,
+        );
+      },
       home: const LoginScreen(),
     );
   }
